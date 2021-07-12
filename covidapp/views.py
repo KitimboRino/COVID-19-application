@@ -3,11 +3,19 @@ import requests
 import json
 
 # Thorough check the end-point url from the API provider.
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # take environmnet vaiables fomr .env
+
+# Environment varibles
+
+
 url = "https://covid-193.p.rapidapi.com/statistics"
 
 headers = {
-    'x-rapidapi-key': "256c891cb0msh8b607b4dc071336p180ca1jsnad99a5613105",
-    'x-rapidapi-host': "covid-193.p.rapidapi.com"
+    'x-rapidapi-key': os.getenv('API_KEY'),
+    'x-rapidapi-host': 'covid-193.p.rapidapi.com'
 }
 
 response = requests.request("GET", url, headers=headers).json()
